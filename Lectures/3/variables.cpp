@@ -16,17 +16,17 @@
 
 #include "print-bits.h"
 
+#include <iostream>
+using namespace std;
+
 int main(int argc, char *argv[])
 {
-	bool b = true;
-	char c = b;
-	int i = c;
-	long l = i;
+	int values[20];
 
-	printIntegerBits(b);
-	printIntegerBits(c);
-	printIntegerBits(i);
-	printIntegerBits(l);
+	for (int i = 0; i < 20; i++)
+	{
+		printIntegerBits(values[i]);
+	}
 
 	return 0;
 }
