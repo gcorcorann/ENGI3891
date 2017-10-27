@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Jonathan Anderson
+ * Copyright 2014, 2016 Jonathan Anderson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,37 @@
  * limitations under the License.
  */
 
-#include "print-bits.h"
+#include <iostream>
+#include <string>
+using namespace std;
+
+//
+// Print out a username.
+//
+// This is an example of a function that *ought* to take its parameter as a
+// const reference, but for historic reasons, it doesn't.
+//
+void printUsername(string&);
 
 int main(int argc, char *argv[])
 {
-	bool b = true;
-	char c = b;
-	int i = c;
-	long l = i;
+	const string users[] = {
+		"alice123",
+		"bob456",
+	};
 
-	printIntegerBits(b);
-	printIntegerBits(c);
-	printIntegerBits(i);
-	printIntegerBits(l);
+	const unsigned int length = sizeof(users) / sizeof(users[0]);
 
-	return 0;
+
+	for (unsigned int i = 0; i < length; i++)
+	{
+		printUsername(users[i]);
+	}
+}
+
+
+
+void printUsername(string& username)
+{
+	cout << "The username is: " << username << endl;
 }

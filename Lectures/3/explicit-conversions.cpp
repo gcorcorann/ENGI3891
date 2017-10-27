@@ -16,17 +16,15 @@
 
 #include "print-bits.h"
 
+#include <iostream>
+
 int main(int argc, char *argv[])
 {
-	bool b = true;
-	char c = b;
-	int i = c;
-	long l = i;
+	long largeInteger = 42;
+	//int small = largeInteger;
+	int small = static_cast<int>(largeInteger);
 
-	printIntegerBits(b);
-	printIntegerBits(c);
-	printIntegerBits(i);
-	printIntegerBits(l);
+	printIntegerBits(small);
 
 	return 0;
 }

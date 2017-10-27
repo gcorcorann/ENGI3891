@@ -14,19 +14,21 @@
  * limitations under the License.
  */
 
-#include "print-bits.h"
+#include <bitset>
+#include <iostream>
 
-int main(int argc, char *argv[])
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
+template<class T>
+void printIntegerBits(const T& value)
 {
-	bool b = true;
-	char c = b;
-	int i = c;
-	long l = i;
+	std::bitset<8 * sizeof(value)> bits(value);
 
-	printIntegerBits(b);
-	printIntegerBits(c);
-	printIntegerBits(i);
-	printIntegerBits(l);
-
-	return 0;
+	std::cout
+		<< "bits in " << static_cast<long long>(value)
+		<< ": " << bits << "\n"
+		;
 }
+
+#pragma clang diagnostic pop
