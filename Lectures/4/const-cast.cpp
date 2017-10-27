@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
 	for (unsigned int i = 0; i < length; i++)
 	{
-		printUsername(users[i]);
+	printUsername(const_cast<string&>(users[i]));
 	}
 }
 

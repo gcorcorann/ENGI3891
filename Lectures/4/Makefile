@@ -7,4 +7,4 @@ EXAMPLES=	\
 
 all: ${EXAMPLES}
 clean:
-	rm -rf ${EXAMPLES} *.dSYM
+	rm -rf ${EXAMPLES}
